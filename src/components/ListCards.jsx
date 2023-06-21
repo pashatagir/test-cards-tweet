@@ -1,13 +1,27 @@
-export const ListCards = ({ users }) => {
+import { useDispatch, useSelector } from "react-redux";
+import { Card } from "./Card";
+import { selectUsers } from "../redux/usersSelectors";
+import { fetchUsers } from "../redux/usersOperations";
+import { useEffect } from "react";
+
+export const ListCards = () => {
+  const dispatch = useDispatch();
+  const { items } = useSelector(selectUsers);
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
   return (
     <ul>
-      {users.map(({ avatar, tweets, folowers, user, id }) => (
-        <li key={id}>
-          <img src={avatar} alt={user} />
-          <p>{tweets} Tweets</p>
-          <p>{folowers} Folowers</p>
-          <button>Follow</button>
-        </li>
+      {items.map((item) => (
+        <Card
+          key={item.id}
+          avatar={item.avatar}
+          tweets={item.tweets}
+          followers={item.followers}
+          user={item.user}
+          id={item.id}
+          item={item}
+        />
       ))}
     </ul>
   );
