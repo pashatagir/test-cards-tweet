@@ -16,6 +16,8 @@ export const usersSlice = createSlice({
     items: [],
     isLoading: false,
     error: null,
+    page: 1,
+    limit: 3,
   },
   extraReducers: (builder) => {
     builder
@@ -24,9 +26,10 @@ export const usersSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.items = action.payload;
+        state.page = action.payload;
       })
       .addCase(fetchUsers.rejected, handleRejected)
-      //
+
       .addCase(changeUser.pending, handlePending)
       .addCase(changeUser.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -34,13 +37,6 @@ export const usersSlice = createSlice({
         const index = state.items.findIndex(
           (item) => item.id === action.payload.id
         );
-        //
-        // if (state.items[index].followers === action.payload.followers) {
-        //   state.items[index].followers += 1;
-        // } else {
-        //   state.items[index].followers -= 1;
-        // }
-        //
         state.items.splice(index, 1, action.payload);
       })
       .addCase(changeUser.rejected, handleRejected);

@@ -1,6 +1,17 @@
 import { useDispatch } from "react-redux";
 import { changeUser } from "../redux/usersOperations";
-import { DecorLine, Item } from "../styles/Styles.styled";
+import {
+  Avatar,
+  AvatarWrap,
+  ButtonFollows,
+  DecorLine,
+  Followers,
+  InfoWrapper,
+  Item,
+  Tweets,
+} from "../styles/Styles.styled";
+import { dataFollowersInString } from "../helpers/dataFollowersInString";
+
 export const Card = ({ avatar, tweets, followers, user, id, isFollower }) => {
   const dispatch = useDispatch();
   const oneUser = { avatar, tweets, user, id };
@@ -24,24 +35,25 @@ export const Card = ({ avatar, tweets, followers, user, id, isFollower }) => {
       );
     }
   };
-  const dataFollowersInString = (f) => {
-    if (f.toString().length > 3) {
-      return (
-        f.toString().slice(0, f.toString().length - 3) +
-        "," +
-        f.toString().slice(f.toString().length - 3)
-      );
-    }
-    return f.toString();
-  };
 
   return (
     <Item>
-      <DecorLine />
-      <img src={avatar} alt={user} />
-      <p>{tweets} Tweets</p>
-      <p>{dataFollowersInString(followers)} Followers</p>
-      <button onClick={handlerClick}>Follow</button>
+      <DecorLine>
+        <AvatarWrap>
+          <Avatar src={avatar} alt={user} />
+        </AvatarWrap>
+        <InfoWrapper>
+          <Tweets>{tweets} Tweets</Tweets>
+          <Followers>{dataFollowersInString(followers)} Followers</Followers>
+          <ButtonFollows
+            type="button"
+            onClick={handlerClick}
+            bgColor={isFollower}
+          >
+            {!isFollower ? "Follow" : "Following"}
+          </ButtonFollows>
+        </InfoWrapper>
+      </DecorLine>
     </Item>
   );
 };

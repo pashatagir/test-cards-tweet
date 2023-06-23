@@ -1,16 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
 import { Card } from "./Card";
-import { selectUsers } from "../redux/usersSelectors";
-import { fetchUsers } from "../redux/usersOperations";
-import { useEffect } from "react";
 import { List } from "../styles/Styles.styled";
 
-export const ListCards = () => {
-  const dispatch = useDispatch();
-  const { items } = useSelector(selectUsers);
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
+export const ListCards = ({ items }) => {
   return (
     <List>
       {items.map((item) => (
