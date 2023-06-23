@@ -31,20 +31,19 @@ export const usersSlice = createSlice({
       .addCase(changeUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        const { id, followers } = action.payload;
-        const updatedUserIndex = state.items.findIndex(
-          (item) => item.id === id
+        const index = state.items.findIndex(
+          (item) => item.id === action.payload.id
         );
-        if (updatedUserIndex !== -1) {
-          if (state.items[updatedUserIndex].followers > followers) {
-            state.items[updatedUserIndex].followers -= 1;
-          } else {
-            state.items[updatedUserIndex].followers += 1;
-          }
-        }
+        //
+        // if (state.items[index].followers === action.payload.followers) {
+        //   state.items[index].followers += 1;
+        // } else {
+        //   state.items[index].followers -= 1;
+        // }
+        //
+        state.items.splice(index, 1, action.payload);
       })
       .addCase(changeUser.rejected, handleRejected);
-    //
   },
 });
 

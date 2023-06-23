@@ -3,6 +3,7 @@ import { Card } from "./Card";
 import { selectUsers } from "../redux/usersSelectors";
 import { fetchUsers } from "../redux/usersOperations";
 import { useEffect } from "react";
+import { List } from "../styles/Styles.styled";
 
 export const ListCards = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ export const ListCards = () => {
     dispatch(fetchUsers());
   }, [dispatch]);
   return (
-    <ul>
+    <List>
       {items.map((item) => (
         <Card
           key={item.id}
@@ -20,9 +21,9 @@ export const ListCards = () => {
           followers={item.followers}
           user={item.user}
           id={item.id}
-          item={item}
+          isFollower={item.isFollower}
         />
       ))}
-    </ul>
+    </List>
   );
 };
