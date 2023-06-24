@@ -2,6 +2,7 @@
   "name": "test-cards-tweet",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://pashatagir.github.io/test-cards-tweet/",
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@emotion/react": "^11.11.1",
