@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktest_tweets=self.webpackChunktest_tweets||[]).push([[415],{5415:function(e,t,s){s.r(t);var n=s(7584),i=s(6952),l=s(184);t.default=function(){return(0,l.jsx)(n.W2,{children:(0,l.jsxs)(n.Dx,{children:["Your tweetbook welcome page!",(0,l.jsx)(i.n7Y,{style:{width:"320px",height:"320px",fill:"#5736a3",marginTop:50}})]})})}}}]);
+//# sourceMappingURL=415.dddabc29.chunk.js.map
