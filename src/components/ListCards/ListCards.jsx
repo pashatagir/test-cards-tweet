@@ -1,10 +1,10 @@
-import { Card } from "./Card";
-import { List } from "../styles/Styles.styled";
+import { Card } from '../Card/Card';
+import { List } from 'components/Style/Style.styled';
 
 export const ListCards = ({ items }) => {
   return (
     <List>
-      {items.map((item) => (
+      {items?.map(item => (
         <Card
           key={item.id}
           avatar={item.avatar}

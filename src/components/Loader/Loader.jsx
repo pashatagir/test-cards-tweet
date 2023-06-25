@@ -1,5 +1,5 @@
-import PacmanLoader from "react-spinners/PacmanLoader";
-import { LoaderContainer } from "../styles/Styles.styled";
+import PacmanLoader from 'react-spinners/PacmanLoader';
+import { LoaderContainer } from 'components/Style/Style.styled';
 
 export const Loader = () => (
   <LoaderContainer>

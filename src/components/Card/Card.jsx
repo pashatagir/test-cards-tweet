@@ -1,5 +1,5 @@
-import { useDispatch } from "react-redux";
-import { changeUser } from "../redux/usersOperations";
+import { useDispatch } from 'react-redux';
+import { changeUser } from '../../redux/usersOperations';
 import {
   Avatar,
   AvatarWrap,
@@ -9,8 +9,8 @@ import {
   InfoWrapper,
   Item,
   Tweets,
-} from "../styles/Styles.styled";
-import { dataFollowersInString } from "../helpers/dataFollowersInString";
+} from 'components/Style/Style.styled';
+import { dataFollowersInString } from '../../helpers/dataFollowersInString';
 
 export const Card = ({ avatar, tweets, followers, user, id, isFollower }) => {
   const dispatch = useDispatch();
@@ -50,7 +50,7 @@ export const Card = ({ avatar, tweets, followers, user, id, isFollower }) => {
             onClick={handlerClick}
             bgColor={isFollower}
           >
-            {!isFollower ? "Follow" : "Following"}
+            {!isFollower ? 'Follow' : 'Following'}
           </ButtonFollows>
         </InfoWrapper>
       </DecorLine>
