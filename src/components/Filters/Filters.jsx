@@ -1,4 +1,5 @@
 import { ButtonFilter } from 'components/Buttons/Buttons';
+import { WrapperBtnFilter } from 'components/Style/Style.styled';
 import { statusFilters } from 'helpers/statusFilters';
 import { useDispatch, useSelector } from 'react-redux';
 import { setStatusFilter } from 'redux/filtersSlice';
@@ -10,7 +11,7 @@ export const StatusFilter = () => {
 
   const handleFilterChange = filter => dispatch(setStatusFilter(filter));
   return (
-    <div>
+    <>
       <ButtonFilter
         selected={filter === statusFilters.all}
         onClick={() => handleFilterChange(statusFilters.all)}
@@ -29,6 +30,6 @@ export const StatusFilter = () => {
       >
         Following
       </ButtonFilter>
-    </div>
+    </>
   );
 };

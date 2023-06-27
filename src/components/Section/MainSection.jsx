@@ -8,6 +8,7 @@ import {
   Navlink,
   SectionContainer,
   Warning,
+  WrapperBtnFilter,
 } from 'components/Style/Style.styled';
 import { statusFilters } from 'helpers/statusFilters';
 import { useEffect, useState } from 'react';
@@ -30,6 +31,7 @@ export const MainSection = () => {
   const { page, limit } = useSelector(selectPagination);
 
   const [showBtn, setShowBtn] = useState(true);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
     dispatch(fetchUsers({ page, limit }));
@@ -37,6 +39,9 @@ export const MainSection = () => {
 
   const onLoadMore = () => {
     dispatch(setPagination({ page, limit: limit + 3 }));
+    console.log('filteredUsers:', filteredUsers.length);
+    console.log('items:', items.length);
+    console.log('limit:', limit);
     if (limit > items.length) {
       setShowBtn(false);
     }
@@ -60,8 +65,10 @@ export const MainSection = () => {
   return (
     <>
       <Navlink to={goBackLink}>Go back</Navlink>
-      <ButtonFilters>Filters</ButtonFilters>
-      <StatusFilter />
+      <ButtonFilters onClick={() => setIsFilterOpen(!isFilterOpen)}>
+        Filters
+        <WrapperBtnFilter>{isFilterOpen && <StatusFilter />}</WrapperBtnFilter>
+      </ButtonFilters>
       <SectionContainer>
         <CardsContainer>
           {isLoading && !error && <Loader />}

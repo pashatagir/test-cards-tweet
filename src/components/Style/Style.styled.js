@@ -22,13 +22,6 @@ export const Title = styled.h1`
   flex-direction: column;
 `;
 
-// UserMenu
-export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 12px;
-`;
-
 // AppBar
 export const Header = styled.header`
   display: flex;
@@ -184,6 +177,7 @@ export const Navlink = styled(NavLink)`
 `;
 
 export const ButtonFilters = styled.button`
+  position: relative;
   background-color: transparent;
   border: none;
   padding: 12px;
@@ -199,18 +193,28 @@ export const ButtonFilters = styled.button`
   }
 `;
 
-export const BtnFilter = styled.button`
+export const BtnFilter = styled.div`
   background-color: transparent;
   border: none;
+  border-radius: 10px;
   padding: 12px;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.2;
   text-transform: uppercase;
-  color: #5736a3;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px #000000;
   cursor: pointer;
   &:hover {
-    color: #ffffff;
-    text-shadow: 2px 2px 5px #000000;
+    color: #5736a3;
   }
+`;
+
+export const WrapperBtnFilter = styled.div`
+  margin-top: 10px;
+  position: absolute;
+  left: -75%;
+  transform: translateX(50%);
+  display: flex;
+  flex-direction: column;
 `;
